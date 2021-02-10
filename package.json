@@ -12,7 +12,9 @@
     "type": "git",
     "url": "git://github.com/wsafight/memoizee-proxy.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "super-expressive": "^1.4.0"
+  },
   "devDependencies": {
     "gulp": "^4.0.2"
   },
