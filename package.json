@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/wsafight/memoizee-proxy.git"
+    "url": "git://github.com/wsafight/elegant-regex.git"
   },
   "dependencies": {
     "super-expressive": "^1.4.0"
@@ -20,7 +20,9 @@
   "devDependencies": {
     "typescript": "^4.1.4",
     "gulp": "^4.0.2",
-    "gulp-typescript": "^6.0.0-alpha.1"
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "gulp-exec": "^5.0.0",
+    "gulp-rename": "^2.0.0"
   },
   "license": "MIT"
 }

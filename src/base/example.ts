@@ -1,6 +1,6 @@
 import SuperExpressive from 'super-expressive';
 
-SuperExpressive()
+const regex = SuperExpressive()
   .allowMultipleMatches
   .lineByLine
   .startOfInput
@@ -14,3 +14,6 @@ SuperExpressive()
   .end()
   .endOfInput
   .toRegex();
+
+export const resultCode = regex.source
+console.log(resultCode)
