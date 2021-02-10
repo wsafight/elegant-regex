@@ -1,29 +1,16 @@
-const { src, dest, parallel } = require('gulp');
-const pug = require('gulp-pug');
-const less = require('gulp-less');
-const minifyCSS = require('gulp-csso');
-const concat = require('gulp-concat');
+const { src, series, dest } = require('gulp');
+const gulpTs = require('gulp-typescript');
 
-function html() {
-  return src('client/templates/*.pug')
-    .pipe(pug())
-    .pipe(dest('build/html'))
+
+const tsProject = gulpTs.createProject('tsconfig.json');
+
+function ts() {
+  return src('src/**/*.ts')
+    .pipe(tsProject())
+    .pipe(dest('dist/'));
+
 }
 
-function css() {
-  return src('client/templates/*.less')
-    .pipe(less())
-    .pipe(minifyCSS())
-    .pipe(dest('build/css'))
-}
+exports.ts = ts;
 
-function js() {
-  return src('client/javascript/*.js', { sourcemaps: true })
-    .pipe(concat('app.min.js'))
-    .pipe(dest('build/js', { sourcemaps: true }))
-}
-
-exports.js = js;
-exports.css = css;
-exports.html = html;
-exports.default = parallel(html, css, js);
+exports.default = series(ts);
