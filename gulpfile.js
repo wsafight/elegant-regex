@@ -2,6 +2,7 @@ const {src, series, dest} = require('gulp');
 const gulpTs = require('gulp-typescript');
 const exec = require('gulp-exec');
 const rename = require('gulp-rename')
+const execSync = require('child_process').execSync;
 
 function execJs() {
   var options = {
@@ -15,7 +16,7 @@ function execJs() {
   };
   return src('dist/**/*.ms')
     .pipe(exec(file => `node ${file.path}`, options))
-    .pipe(exec.reporter(reportOptions));
+    .pipe(exec.reporter(reportOptions))
 }
 
 const tsProject = gulpTs.createProject('tsconfig.json');
